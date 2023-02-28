@@ -3,6 +3,7 @@
 from reportlab.platypus import Paragraph
 
 from src.utils.formatacao import obter_dimensoes, obter_espacamentos, obter_estilos, obter_margens
+from src.utils.barragem import substituir_placeholders
 
 
 """ GERAÇÃO DA CAPA DO DOCUMENTO """
@@ -12,8 +13,14 @@ estilos = obter_estilos()
 margens = obter_margens()
 espacamentos = obter_espacamentos()
 
+def gerar_capa(canvas, barragem):
+    textos = [
+        "{{num_vistoria}}º RELATÓRIO DE INSPEÇÃO DE SEGURANÇA REGULAR DA BARRAGEM {{nome_barragem}}",
+        "Recife, {{data}}."
+    ]
+    
+    textos = substituir_placeholders(textos, barragem)
 
-def gerar_capa(canvas):
     # A imagem é adicionada ao canvas na posição (0, 0)
     # com uma largura e altura para preencher toda a página sem margens.
     canvas.drawImage("assets/background_cover.png", 0, 0,
@@ -21,7 +28,7 @@ def gerar_capa(canvas):
 
     # Define o texto centralizado na página
 
-    texto = "{{num_vistoria}}º RELATÓRIO DE INSPEÇÃO DE SEGURANÇA REGULAR DA BARRAGEM {{nome_barragem}}"
+    texto = textos[0].upper()
     paragrafo = Paragraph(texto, estilos['capa'])
     largura_paragrafo, altura_paragrafo = paragrafo.wrap(dimensoes['largura'] - margens['esquerda'] - margens['direita'],
                                                          dimensoes['altura'] - margens['superior'] - margens['inferior'])
@@ -32,7 +39,7 @@ def gerar_capa(canvas):
 
     # Define o texto na última linha da página alinhado à direita
 
-    texto_alinhado_direita = "Recife, {{data}}."
+    texto_alinhado_direita = textos[1]
 
     canvas.setFillColorRGB(0, 0, 0)  # define a cor do texto como azul
     canvas.setFont("Helvetica", 12)  # define a fonte como tamanho 12

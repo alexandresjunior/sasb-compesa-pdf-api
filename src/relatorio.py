@@ -16,7 +16,7 @@ def gerar_relatorio(buffer, barragem, formulario):
     # c = canvas.Canvas("relatorio.pdf", pagesize=A4) # Salva em disco
     c = canvas.Canvas(buffer)
 
-    gerar_capa(c)
+    gerar_capa(c, barragem)
     altura_texto, num_pagina = gerar_sumario(c)
     altura_texto, num_pagina = gerar_pag_1(c, num_pagina, barragem)
     altura_texto, num_pagina = gerar_pag_2(c, altura_texto, num_pagina, barragem)
