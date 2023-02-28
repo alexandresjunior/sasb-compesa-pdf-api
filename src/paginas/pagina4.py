@@ -4,6 +4,7 @@ from reportlab.platypus import Paragraph
 
 from src.utils.formatacao import obter_dimensoes, obter_espacamentos, obter_estilos, obter_margens
 from src.utils.paginacao import atualizar_num_pagina, criar_nova_pagina
+from src.utils.barragem import substituir_placeholders
 
 """ GERAÇÃO DA PÁGINA 4 DO DOCUMENTO """
 
@@ -12,8 +13,14 @@ estilos = obter_estilos()
 margens = obter_margens()
 espacamentos = obter_espacamentos()
 
-def gerar_pag_4(canvas, altura_texto, num_pagina):
+def gerar_pag_4(canvas, altura_texto, num_pagina, barragem):
     criar_nova_pagina(canvas)
+
+    textos = [
+        "O Nível de Perigo Global da Barragem (NPGB) é {{npgb}}, consoante com o Art. 12º da Resolução nº 03/2017-DC de 28/12/2017, elaborada pela Agência Pernambucana de Águas e Climas (APAC)."
+    ]
+    
+    textos = substituir_placeholders(textos, barragem)
 
     # Define o título e desenha na página
 
@@ -26,7 +33,7 @@ def gerar_pag_4(canvas, altura_texto, num_pagina):
 
     # Define o texto e desenha na página
 
-    texto = "O Nível de Perigo Global da Barragem (NPGB) é {{npgb}}, consoante com o Art. 12º da Resolução nº 03/2017-DC de 28/12/2017, elaborada pela Agência Pernambucana de Águas e Climas (APAC)."
+    texto = textos[0]
     paragrafo = Paragraph(texto, estilos['texto'])
     largura_paragrafo, altura_paragrafo = paragrafo.wrap(dimensoes['largura'] - margens['esquerda'] - margens['direita'],
                                                          dimensoes['altura'] - margens['superior'] - margens['inferior'])

@@ -20,8 +20,8 @@ def gerar_relatorio(buffer, barragem, formulario):
     altura_texto, num_pagina = gerar_sumario(c)
     altura_texto, num_pagina = gerar_pag_1(c, num_pagina, barragem)
     altura_texto, num_pagina = gerar_pag_2(c, altura_texto, num_pagina, barragem)
-    altura_texto, num_pagina = gerar_pag_3(c, altura_texto, num_pagina, formulario)
-    altura_texto, num_pagina = gerar_pag_4(c, altura_texto, num_pagina)
+    altura_texto, num_pagina = gerar_pag_3(c, altura_texto, num_pagina, barragem, formulario)
+    altura_texto, num_pagina = gerar_pag_4(c, altura_texto, num_pagina, barragem)
     altura_texto, num_pagina = gerar_pag_5(c, altura_texto, num_pagina, formulario)
 
     # Finalizar o canvas e salvar o conteúdo no buffer de memória.

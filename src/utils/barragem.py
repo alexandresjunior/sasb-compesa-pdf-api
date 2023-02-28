@@ -9,6 +9,7 @@ def substituir_placeholders(textos, barragem):
         texto = texto.replace("{{municipio}}", str(barragem['localizacao']['municipio']))
         texto = texto.replace("{{estado}}", str(barragem['localizacao']['estado']))
         texto = texto.replace("{{outorga_captacao}}", str(barragem['outorgaCaptacao']))
+        texto = texto.replace("{{data_construcao}}", "A DEFINIR")
         texto = texto.replace("{{outorga_construcao}}", str(barragem['outorgaObraHidrica']))
         texto = texto.replace("{{responsavel_construcao}}", "A DEFINIR")
         texto = texto.replace("{{bacia_hidrografica}}", str(barragem['detalhes']['bacia']))
