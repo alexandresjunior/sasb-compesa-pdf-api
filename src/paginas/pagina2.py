@@ -184,6 +184,6 @@ def gerar_pag_2(canvas, altura_texto, num_pagina):
     paragrafo.drawOn(canvas, margens['esquerda'],
                      dimensoes['altura'] - altura_texto)
 
-    atualizar_num_pagina(canvas, num_pagina)
+    num_pagina = atualizar_num_pagina(canvas, num_pagina)
 
     return altura_texto, num_pagina

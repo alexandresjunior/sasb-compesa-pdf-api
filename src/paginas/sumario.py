@@ -3,6 +3,7 @@
 from reportlab.platypus import Paragraph
 
 from utils.formatacao import obter_dimensoes, obter_espacamentos, obter_estilos, obter_margens
+from utils.paginacao import atualizar_num_pagina, inicializar_paginacao
 
 """ GERAÇÃO DO SUMÁRIO DO DOCUMENTO """
 
@@ -110,3 +111,9 @@ def gerar_sumario(canvas):
     altura_texto += altura_paragrafo + espacamentos['linhas']
     paragrafo.drawOn(canvas, margens['esquerda'],
                      dimensoes['altura'] - altura_texto)
+    
+    num_pagina = inicializar_paginacao()
+
+    num_pagina = atualizar_num_pagina(canvas, num_pagina)
+
+    return altura_texto, num_pagina

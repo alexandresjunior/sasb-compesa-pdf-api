@@ -6,7 +6,7 @@ from reportlab.lib.utils import ImageReader
 from mocks.formulario import obter_formulario
 from utils.anexos import agrupar_anexos
 from utils.formatacao import obter_dimensoes, obter_espacamentos, obter_estilos, obter_fator_redutor_imagem, obter_margens
-from utils.paginacao import atualizar_num_pagina, inicializar_paginacao
+from utils.paginacao import atualizar_num_pagina
 
 """ GERAÇÃO DA PÁGINA 5 DO DOCUMENTO """
 
@@ -14,8 +14,6 @@ dimensoes = obter_dimensoes()
 estilos = obter_estilos()
 margens = obter_margens()
 espacamentos = obter_espacamentos()
-
-num_pagina = inicializar_paginacao()
 
 questoes = obter_formulario()
 
@@ -37,7 +35,7 @@ def gerar_pag_5(canvas, altura_texto, num_pagina):
     y = (dimensoes['altura'] - altura_paragrafo) / 2        # posição Y para centralizar o texto
     paragrafo.drawOn(canvas, x, y)
 
-    atualizar_num_pagina(canvas, num_pagina)
+    num_pagina = atualizar_num_pagina(canvas, num_pagina)
 
     anexos = agrupar_anexos(questoes)
 
@@ -82,6 +80,6 @@ def gerar_pag_5(canvas, altura_texto, num_pagina):
 
             num_figura += 1
 
-        atualizar_num_pagina(canvas, num_pagina)
+        num_pagina = atualizar_num_pagina(canvas, num_pagina)
 
     return altura_texto, num_pagina

@@ -35,3 +35,5 @@ def atualizar_num_pagina(canvas, num_pagina):
     canvas.drawString(posicao_x, posicao_y, texto_alinhado_direita)
 
     num_pagina += 1
+
+    return num_pagina

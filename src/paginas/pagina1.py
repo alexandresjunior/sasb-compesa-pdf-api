@@ -3,7 +3,7 @@
 from reportlab.platypus import Paragraph
 
 from utils.formatacao import obter_dimensoes, obter_estilos, obter_margens, obter_espacamentos
-from utils.paginacao import atualizar_num_pagina, inicializar_paginacao
+from utils.paginacao import atualizar_num_pagina
 
 
 """ GERAÇÃO DA PÁGINA 1 DO DOCUMENTO """
@@ -13,10 +13,7 @@ estilos = obter_estilos()
 margens = obter_margens()
 espacamentos = obter_espacamentos()
 
-num_pagina = inicializar_paginacao()
-
-
-def gerar_pag_1(canvas):
+def gerar_pag_1(canvas, num_pagina):
     # Finaliza a página anterior e adiciona uma nova página em branco.
     canvas.showPage()
 
@@ -222,6 +219,6 @@ def gerar_pag_1(canvas):
     paragrafo.drawOn(canvas, margens['esquerda'],
                      dimensoes['altura'] - altura_texto)
 
-    atualizar_num_pagina(canvas, num_pagina)
+    num_pagina = atualizar_num_pagina(canvas, num_pagina)
 
     return altura_texto, num_pagina

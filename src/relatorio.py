@@ -15,8 +15,8 @@ from paginas.sumario import gerar_sumario
 c = canvas.Canvas("relatorio.pdf", pagesize=A4)
 
 gerar_capa(c)
-gerar_sumario(c)
-altura_texto, num_pagina = gerar_pag_1(c)
+altura_texto, num_pagina = gerar_sumario(c)
+altura_texto, num_pagina = gerar_pag_1(c, num_pagina)
 altura_texto, num_pagina = gerar_pag_2(c, altura_texto, num_pagina)
 altura_texto, num_pagina = gerar_pag_3(c, altura_texto, num_pagina)
 altura_texto, num_pagina = gerar_pag_4(c, altura_texto, num_pagina)

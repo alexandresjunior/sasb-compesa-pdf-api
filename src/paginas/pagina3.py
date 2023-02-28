@@ -4,7 +4,7 @@ from reportlab.platypus import Paragraph
 from mocks.formulario import obter_formulario
 
 from utils.formatacao import obter_dimensoes, obter_estilos, obter_margens, obter_espacamentos
-from utils.paginacao import atualizar_num_pagina, inicializar_paginacao
+from utils.paginacao import atualizar_num_pagina
 from utils.inspecao import gerar_ficha_inspecao
 
 
@@ -14,8 +14,6 @@ dimensoes = obter_dimensoes()
 estilos = obter_estilos()
 margens = obter_margens()
 espacamentos = obter_espacamentos()
-
-num_pagina = inicializar_paginacao()
 
 questoes = obter_formulario()
 
@@ -50,8 +48,8 @@ def gerar_pag_3(canvas, altura_texto, num_pagina):
     paragrafo.drawOn(canvas, margens['esquerda'],
                      dimensoes['altura'] - altura_texto)
 
-    atualizar_num_pagina(canvas, num_pagina)
+    num_pagina = atualizar_num_pagina(canvas, num_pagina)
 
-    gerar_ficha_inspecao(canvas, num_pagina, questoes, altura_texto)
+    num_pagina = gerar_ficha_inspecao(canvas, num_pagina, questoes, altura_texto)
 
     return altura_texto, num_pagina

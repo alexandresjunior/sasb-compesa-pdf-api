@@ -3,19 +3,19 @@
 from reportlab.platypus import Paragraph, Table
 
 from utils.formatacao import obter_dimensoes, obter_espacamentos, obter_estilos, obter_margens
-from utils.paginacao import atualizar_num_pagina, inicializar_paginacao
+from utils.paginacao import atualizar_num_pagina
 
 dimensoes = obter_dimensoes()
 estilos = obter_estilos()
 margens = obter_margens()
 espacamentos = obter_espacamentos()
 
-num_pagina = inicializar_paginacao()
-
 """ GERAÇÃO DA FICHA DE INSPEÇÃO """
 
 
 def gerar_ficha_inspecao(canvas, num_pagina, questoes, altura_texto):
+    num_pagina_atual = num_pagina
+
     for questao in questoes:
         # Define o texto e desenha na página
 
@@ -80,7 +80,7 @@ def gerar_ficha_inspecao(canvas, num_pagina, questoes, altura_texto):
                     altura_texto = altura_subtitulo + \
                         altura_tabela + espacamentos['linhas']
 
-                    atualizar_num_pagina(canvas, num_pagina)
+                    num_pagina_atual = atualizar_num_pagina(canvas, num_pagina_atual)
 
                 p_secao.drawOn(
                     canvas, margens['esquerda'], dimensoes['altura'] - altura_titulo)
@@ -124,9 +124,11 @@ def gerar_ficha_inspecao(canvas, num_pagina, questoes, altura_texto):
                     altura_texto = altura_titulo + \
                         altura_tabela + espacamentos['linhas']
 
-                    atualizar_num_pagina(canvas, num_pagina)
+                    num_pagina_atual = atualizar_num_pagina(canvas, num_pagina_atual)
 
                     p_secao.drawOn(
                         canvas, margens['esquerda'], dimensoes['altura'] - altura_titulo)
                     tabela.drawOn(
                         canvas, margens['esquerda'], dimensoes['altura'] - altura_texto)
+
+    return num_pagina_atual
