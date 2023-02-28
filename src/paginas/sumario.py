@@ -2,8 +2,8 @@
 
 from reportlab.platypus import Paragraph
 
-from utils.formatacao import obter_dimensoes, obter_espacamentos, obter_estilos, obter_margens
-from utils.paginacao import atualizar_num_pagina, criar_nova_pagina, inicializar_paginacao
+from src.utils.formatacao import obter_dimensoes, obter_espacamentos, obter_estilos, obter_margens
+from src.utils.paginacao import atualizar_num_pagina, criar_nova_pagina, inicializar_paginacao
 
 """ GERAÇÃO DO SUMÁRIO DO DOCUMENTO """
 

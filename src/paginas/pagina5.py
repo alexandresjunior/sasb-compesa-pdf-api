@@ -3,10 +3,10 @@
 from reportlab.platypus import Paragraph
 from reportlab.lib.utils import ImageReader
 
-from mocks.formulario import obter_formulario
-from utils.anexos import agrupar_anexos
-from utils.formatacao import obter_dimensoes, obter_espacamentos, obter_estilos, obter_fator_redutor_imagem, obter_margens
-from utils.paginacao import atualizar_num_pagina, criar_nova_pagina
+from src.mocks.formulario import obter_formulario
+from src.utils.anexos import agrupar_anexos
+from src.utils.formatacao import obter_dimensoes, obter_espacamentos, obter_estilos, obter_fator_redutor_imagem, obter_margens
+from src.utils.paginacao import atualizar_num_pagina, criar_nova_pagina
 
 """ GERAÇÃO DA PÁGINA 5 DO DOCUMENTO """
 

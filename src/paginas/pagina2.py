@@ -2,8 +2,8 @@
 
 from reportlab.platypus import Paragraph
 
-from utils.formatacao import obter_dimensoes, obter_estilos, obter_margens, obter_espacamentos
-from utils.paginacao import atualizar_num_pagina, criar_nova_pagina
+from src.utils.formatacao import obter_dimensoes, obter_estilos, obter_margens, obter_espacamentos
+from src.utils.paginacao import atualizar_num_pagina, criar_nova_pagina
 
 """ GERAÇÃO DA PÁGINA 2 DO DOCUMENTO """
 

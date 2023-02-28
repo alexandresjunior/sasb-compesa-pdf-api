@@ -2,7 +2,7 @@
 
 from reportlab.platypus import Paragraph
 
-from utils.formatacao import obter_dimensoes, obter_espacamentos, obter_estilos, obter_margens
+from src.utils.formatacao import obter_dimensoes, obter_espacamentos, obter_estilos, obter_margens
 
 
 """ GERAÇÃO DA CAPA DO DOCUMENTO """

@@ -1,10 +1,11 @@
 # !pip install reportlab==3.6.12
 
 from reportlab.platypus import Paragraph
-from mocks.formulario import obter_formulario
 
-from utils.formatacao import obter_dimensoes, obter_espacamentos, obter_estilos, obter_margens
-from utils.paginacao import atualizar_num_pagina, criar_nova_pagina
+from src.mocks.formulario import obter_formulario
+
+from src.utils.formatacao import obter_dimensoes, obter_espacamentos, obter_estilos, obter_margens
+from src.utils.paginacao import atualizar_num_pagina, criar_nova_pagina
 
 """ GERAÇÃO DA PÁGINA 4 DO DOCUMENTO """
 
