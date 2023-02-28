@@ -3,7 +3,7 @@
 from reportlab.platypus import Paragraph
 
 from utils.formatacao import obter_dimensoes, obter_espacamentos, obter_estilos, obter_margens
-from utils.paginacao import atualizar_num_pagina, inicializar_paginacao
+from utils.paginacao import atualizar_num_pagina, criar_nova_pagina, inicializar_paginacao
 
 """ GERAÇÃO DO SUMÁRIO DO DOCUMENTO """
 
@@ -14,12 +14,7 @@ espacamentos = obter_espacamentos()
 
 
 def gerar_sumario(canvas):
-    # Finaliza a página anterior e adiciona uma nova página em branco.
-    canvas.showPage()
-
-    # Insere imagem de fundo
-    canvas.drawImage("assets/background_page.png", x=0, y=0,
-                     width=dimensoes['largura'], height=dimensoes['altura'])
+    criar_nova_pagina(canvas)
 
     # Define o título e desenha na página
 

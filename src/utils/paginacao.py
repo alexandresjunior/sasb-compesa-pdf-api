@@ -37,3 +37,12 @@ def atualizar_num_pagina(canvas, num_pagina):
     num_pagina += 1
 
     return num_pagina
+
+
+def criar_nova_pagina(canvas):
+    # Finaliza a página anterior e adiciona uma nova página em branco.
+    canvas.showPage()
+
+    # Insere imagem de fundo
+    canvas.drawImage("assets/background_page.png", x=0, y=0,
+                     width=dimensoes['largura'], height=dimensoes['altura'])

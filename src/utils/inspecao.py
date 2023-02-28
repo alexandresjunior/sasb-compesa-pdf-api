@@ -3,7 +3,7 @@
 from reportlab.platypus import Paragraph, Table
 
 from utils.formatacao import obter_dimensoes, obter_espacamentos, obter_estilos, obter_margens
-from utils.paginacao import atualizar_num_pagina
+from utils.paginacao import atualizar_num_pagina, criar_nova_pagina
 
 dimensoes = obter_dimensoes()
 estilos = obter_estilos()
@@ -65,12 +65,7 @@ def gerar_ficha_inspecao(canvas, num_pagina, questoes, altura_texto):
                 altura_texto += altura_tabela + espacamentos['linhas']
 
                 if (altura_texto > dimensoes['altura'] - margens['inferior']):
-                    # Finaliza a página anterior e adiciona uma nova página em branco.
-                    canvas.showPage()
-
-                    # Insere imagem de fundo
-                    canvas.drawImage("assets/background_page.png", x=0, y=0,
-                                     width=dimensoes['largura'], height=dimensoes['altura'])
+                    criar_nova_pagina(canvas)
 
                     # Atualiza as alturas do titulo, subtitulo e tabela
                     altura_titulo = margens['superior'] + \
@@ -114,12 +109,7 @@ def gerar_ficha_inspecao(canvas, num_pagina, questoes, altura_texto):
             altura_texto += altura_tabela + espacamentos['linhas']
 
             if (altura_texto > dimensoes['altura'] - margens['inferior']):
-                # Finaliza a página anterior e adiciona uma nova página em branco.
-                canvas.showPage()
-
-                # Insere imagem de fundo
-                canvas.drawImage("assets/background_page.png", x=0, y=0,
-                                    width=dimensoes['largura'], height=dimensoes['altura'])
+                criar_nova_pagina(canvas)
 
                 # Atualiza as alturas do titulo, subtitulo e tabela
                 altura_titulo = margens['superior'] + \
