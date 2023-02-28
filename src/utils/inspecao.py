@@ -2,8 +2,8 @@
 
 from reportlab.platypus import Paragraph, Table
 
-from src.utils.formatacao import obter_dimensoes, obter_espacamentos, obter_estilos, obter_margens
-from src.utils.paginacao import atualizar_num_pagina, inicializar_paginacao
+from utils.formatacao import obter_dimensoes, obter_espacamentos, obter_estilos, obter_margens
+from utils.paginacao import atualizar_num_pagina, inicializar_paginacao
 
 dimensoes = obter_dimensoes()
 estilos = obter_estilos()
@@ -15,7 +15,7 @@ num_pagina = inicializar_paginacao()
 """ GERAÇÃO DA FICHA DE INSPEÇÃO """
 
 
-def gerar_ficha_inspecao(canvas, num_pagina, questoes):
+def gerar_ficha_inspecao(canvas, num_pagina, questoes, altura_texto):
     for questao in questoes:
         # Define o texto e desenha na página
 
@@ -69,7 +69,7 @@ def gerar_ficha_inspecao(canvas, num_pagina, questoes):
                     canvas.showPage()
 
                     # Insere imagem de fundo
-                    canvas.drawImage("../../assets/background_page.png", x=0, y=0,
+                    canvas.drawImage("assets/background_page.png", x=0, y=0,
                                      width=dimensoes['largura'], height=dimensoes['altura'])
 
                     # Atualiza as alturas do titulo, subtitulo e tabela
@@ -115,7 +115,7 @@ def gerar_ficha_inspecao(canvas, num_pagina, questoes):
                     canvas.showPage()
 
                     # Insere imagem de fundo
-                    canvas.drawImage("../../assets/background_page.png", x=0, y=0,
+                    canvas.drawImage("assets/background_page.png", x=0, y=0,
                                      width=dimensoes['largura'], height=dimensoes['altura'])
 
                     # Atualiza as alturas do titulo, subtitulo e tabela

@@ -2,7 +2,7 @@
 
 from reportlab.platypus import Paragraph
 
-from src.utils.formatacao import obter_dimensoes, obter_espacamentos, obter_estilos, obter_margens
+from utils.formatacao import obter_dimensoes, obter_espacamentos, obter_estilos, obter_margens
 
 
 """ GERAÇÃO DA CAPA DO DOCUMENTO """
@@ -16,7 +16,7 @@ espacamentos = obter_espacamentos()
 def gerar_capa(canvas):
     # A imagem é adicionada ao canvas na posição (0, 0)
     # com uma largura e altura para preencher toda a página sem margens.
-    canvas.drawImage("../../assets/background_cover.png", 0, 0,
+    canvas.drawImage("assets/background_cover.png", 0, 0,
                      dimensoes['largura'], dimensoes['altura'])
 
     # Define o texto centralizado na página
@@ -26,10 +26,8 @@ def gerar_capa(canvas):
     largura_paragrafo, altura_paragrafo = paragrafo.wrap(dimensoes['largura'] - margens['esquerda'] - margens['direita'],
                                                          dimensoes['altura'] - margens['superior'] - margens['inferior'])
 
-    x = (dimensoes['largura'] - largura_paragrafo) / \
-        2  # posição X para centralizar o parágrafo
-    y = (dimensoes['altura'] - altura_paragrafo) / \
-        2  # posição Y para centralizar o parágrafo
+    x = (dimensoes['largura'] - largura_paragrafo) / 2  # posição X para centralizar o parágrafo
+    y = (dimensoes['altura'] - altura_paragrafo) / 2    # posição Y para centralizar o parágrafo
     paragrafo.drawOn(canvas, x, y)
 
     # Define o texto na última linha da página alinhado à direita

@@ -3,10 +3,10 @@
 from reportlab.platypus import Paragraph
 from reportlab.lib.utils import ImageReader
 
-from src.mocks.formulario import obter_questoes
-from src.utils.anexos import agrupar_anexos
-from src.utils.formatacao import obter_dimensoes, obter_espacamentos, obter_estilos, obter_fator_redutor_imagem, obter_margens
-from src.utils.paginacao import atualizar_num_pagina, inicializar_paginacao
+from mocks.formulario import obter_formulario
+from utils.anexos import agrupar_anexos
+from utils.formatacao import obter_dimensoes, obter_espacamentos, obter_estilos, obter_fator_redutor_imagem, obter_margens
+from utils.paginacao import atualizar_num_pagina, inicializar_paginacao
 
 """ GERAÇÃO DA PÁGINA 5 DO DOCUMENTO """
 
@@ -17,14 +17,14 @@ espacamentos = obter_espacamentos()
 
 num_pagina = inicializar_paginacao()
 
-questoes = obter_questoes()
+questoes = obter_formulario()
 
 def gerar_pag_5(canvas, altura_texto, num_pagina):
     # Finaliza a página anterior e adiciona uma nova página em branco. 
     canvas.showPage()
 
     # Insere imagem de fundo
-    canvas.drawImage("background_page.png", x=0, y=0,
+    canvas.drawImage("assets/background_page.png", x=0, y=0,
                      width=dimensoes['largura'], height=dimensoes['altura'])
 
     # Define o título e desenha na página
@@ -50,7 +50,7 @@ def gerar_pag_5(canvas, altura_texto, num_pagina):
         canvas.showPage()
 
         # Insere imagem de fundo
-        canvas.drawImage("../../assets/background_page.png", x=0, y=0, width=dimensoes['largura'], height=dimensoes['altura'])
+        canvas.drawImage("assets/background_page.png", x=0, y=0, width=dimensoes['largura'], height=dimensoes['altura'])
         
         altura_texto = margens['superior']
 

@@ -2,8 +2,8 @@
 
 from reportlab.platypus import Paragraph
 
-from src.utils.formatacao import obter_dimensoes, obter_espacamentos, obter_estilos, obter_margens
-from src.utils.paginacao import atualizar_num_pagina, inicializar_paginacao
+from utils.formatacao import obter_dimensoes, obter_estilos, obter_margens, obter_espacamentos
+from utils.paginacao import atualizar_num_pagina
 
 """ GERAÇÃO DA PÁGINA 2 DO DOCUMENTO """
 
@@ -17,7 +17,7 @@ def gerar_pag_2(canvas, altura_texto, num_pagina):
     canvas.showPage()
 
     # Insere imagem de fundo
-    canvas.drawImage("background_page.png", x=0, y=0,
+    canvas.drawImage("assets/background_page.png", x=0, y=0,
                      width=dimensoes['largura'], height=dimensoes['altura'])
 
     # Define o texto e desenha na página
