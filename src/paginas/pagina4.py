@@ -98,7 +98,7 @@ def gerar_pag_4(canvas, altura_texto, num_pagina):
                                                          dimensoes['altura'] - margens['superior'] - margens['inferior'])
 
     x = (dimensoes['largura'] - largura_paragrafo) / 2 # posição X para centralizar o parágrafo
-    altura_texto += altura_paragrafo + espacamentos['linhas'] + espacamentos['titulo']
+    altura_texto += altura_paragrafo + espacamentos['linhas']
     paragrafo.drawOn(canvas, margens['esquerda'], dimensoes['altura'] - altura_texto)
 
     # Define o texto centralizado na página
@@ -109,7 +109,7 @@ def gerar_pag_4(canvas, altura_texto, num_pagina):
                                                          dimensoes['altura'] - margens['superior'] - margens['inferior'])
 
     x = (dimensoes['largura'] - largura_paragrafo) / 2 # posição X para centralizar o parágrafo
-    altura_texto += altura_paragrafo + espacamentos['linhas'] + espacamentos['titulo']
+    altura_texto += altura_paragrafo + espacamentos['linhas']
     paragrafo.drawOn(canvas, margens['esquerda'], dimensoes['altura'] - altura_texto)
 
     # Define o texto centralizado na página
@@ -120,7 +120,7 @@ def gerar_pag_4(canvas, altura_texto, num_pagina):
                                                          dimensoes['altura'] - margens['superior'] - margens['inferior'])
 
     x = (dimensoes['largura'] - largura_paragrafo) / 2 # posição X para centralizar o parágrafo
-    altura_texto += altura_paragrafo + espacamentos['linhas'] + espacamentos['titulo']
+    altura_texto += altura_paragrafo + espacamentos['linhas']
     paragrafo.drawOn(canvas, margens['esquerda'], dimensoes['altura'] - altura_texto)
 
     # Define o texto centralizado na página
@@ -142,7 +142,7 @@ def gerar_pag_4(canvas, altura_texto, num_pagina):
                                                          dimensoes['altura'] - margens['superior'] - margens['inferior'])
 
     x = (dimensoes['largura'] - largura_paragrafo) / 2 # posição X para centralizar o parágrafo
-    altura_texto += altura_paragrafo + espacamentos['linhas'] + espacamentos['titulo']
+    altura_texto += altura_paragrafo + espacamentos['linhas']
     paragrafo.drawOn(canvas, margens['esquerda'], dimensoes['altura'] - altura_texto)
 
     # Define o texto centralizado na página
@@ -153,7 +153,7 @@ def gerar_pag_4(canvas, altura_texto, num_pagina):
                                                          dimensoes['altura'] - margens['superior'] - margens['inferior'])
 
     x = (dimensoes['largura'] - largura_paragrafo) / 2 # posição X para centralizar o parágrafo
-    altura_texto += altura_paragrafo + espacamentos['linhas'] + espacamentos['titulo']
+    altura_texto += altura_paragrafo + espacamentos['linhas']
     paragrafo.drawOn(canvas, margens['esquerda'], dimensoes['altura'] - altura_texto)
 
     # Define o texto centralizado na página
@@ -164,7 +164,7 @@ def gerar_pag_4(canvas, altura_texto, num_pagina):
                                                          dimensoes['altura'] - margens['superior'] - margens['inferior'])
 
     x = (dimensoes['largura'] - largura_paragrafo) / 2 # posição X para centralizar o parágrafo
-    altura_texto += altura_paragrafo + espacamentos['linhas'] + espacamentos['titulo']
+    altura_texto += altura_paragrafo + espacamentos['linhas']
     paragrafo.drawOn(canvas, margens['esquerda'], dimensoes['altura'] - altura_texto)
 
     # Define o texto centralizado na página
@@ -186,7 +186,7 @@ def gerar_pag_4(canvas, altura_texto, num_pagina):
                                                          dimensoes['altura'] - margens['superior'] - margens['inferior'])
 
     x = (dimensoes['largura'] - largura_paragrafo) / 2 # posição X para centralizar o parágrafo
-    altura_texto += altura_paragrafo + espacamentos['linhas'] + espacamentos['titulo']
+    altura_texto += altura_paragrafo + espacamentos['linhas']
     paragrafo.drawOn(canvas, margens['esquerda'], dimensoes['altura'] - altura_texto)
 
     # Define o texto centralizado na página
@@ -197,7 +197,7 @@ def gerar_pag_4(canvas, altura_texto, num_pagina):
                                                          dimensoes['altura'] - margens['superior'] - margens['inferior'])
 
     x = (dimensoes['largura'] - largura_paragrafo) / 2 # posição X para centralizar o parágrafo
-    altura_texto += altura_paragrafo + espacamentos['linhas'] + espacamentos['titulo']
+    altura_texto += altura_paragrafo + espacamentos['linhas']
     paragrafo.drawOn(canvas, margens['esquerda'], dimensoes['altura'] - altura_texto)
 
     num_pagina = atualizar_num_pagina(canvas, num_pagina)
