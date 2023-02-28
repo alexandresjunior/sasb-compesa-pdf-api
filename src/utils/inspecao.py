@@ -89,46 +89,49 @@ def gerar_ficha_inspecao(canvas, num_pagina, questoes, altura_texto):
                 tabela.drawOn(
                     canvas, margens['esquerda'], dimensoes['altura'] - altura_texto)
 
-            if 'itens' in questao:
-                dados = [
-                    ["Item", "Localização / Anomalia",
-                        "Situação", "Magnitude", "NP"],
-                ]
+        if 'itens' in questao:
+            dados = [
+                ["Item", 
+                 "Localização / Anomalia",
+                 "Situação", 
+                 "Magnitude", 
+                 "NP"],
+            ]
 
-                for item in questao['itens']:
-                    dados.append(
-                        [item['indice'], item['descricao'], item['resposta']['situacao']['sigla'],
-                            item['resposta']['magnitude']['sigla'], item['resposta']['nivelPerigo']['sigla']]
-                    )
+            for item in questao['itens']:
+                dados.append(
+                    [item['indice'], item['descricao'], item['resposta']['situacao']['sigla'],
+                        item['resposta']['magnitude']['sigla'], item['resposta']['nivelPerigo']['sigla']]
+                )
 
-                # Cria a tabela
-                tabela = Table(
-                    dados, style=estilos['tabela'], colWidths=dimensoes['colunas_tabela'])
+            # Cria a tabela
+            tabela = Table(
+                dados, style=estilos['tabela'], colWidths=dimensoes['colunas_tabela'])
 
-                # Adiciona a tabela ao PDF
-                largura_tabela, altura_tabela = tabela.wrap(dimensoes['largura'] - margens['esquerda'] - margens['direita'],
-                                                            dimensoes['altura'] - margens['superior'] - margens['inferior'])
-                altura_texto += altura_tabela + espacamentos['linhas']
+            # Adiciona a tabela ao PDF
+            largura_tabela, altura_tabela = tabela.wrap(dimensoes['largura'] - margens['esquerda'] - margens['direita'],
+                                                        dimensoes['altura'] - margens['superior'] - margens['inferior'])
+            altura_texto += altura_tabela + espacamentos['linhas']
 
-                if (altura_texto > dimensoes['altura'] - margens['inferior']):
-                    # Finaliza a página anterior e adiciona uma nova página em branco.
-                    canvas.showPage()
+            if (altura_texto > dimensoes['altura'] - margens['inferior']):
+                # Finaliza a página anterior e adiciona uma nova página em branco.
+                canvas.showPage()
 
-                    # Insere imagem de fundo
-                    canvas.drawImage("assets/background_page.png", x=0, y=0,
-                                     width=dimensoes['largura'], height=dimensoes['altura'])
+                # Insere imagem de fundo
+                canvas.drawImage("assets/background_page.png", x=0, y=0,
+                                    width=dimensoes['largura'], height=dimensoes['altura'])
 
-                    # Atualiza as alturas do titulo, subtitulo e tabela
-                    altura_titulo = margens['superior'] + \
-                        altura_p_secao + espacamentos['linhas']
-                    altura_texto = altura_titulo + \
-                        altura_tabela + espacamentos['linhas']
+                # Atualiza as alturas do titulo, subtitulo e tabela
+                altura_titulo = margens['superior'] + \
+                    altura_p_secao + espacamentos['linhas']
+                altura_texto = altura_titulo + \
+                    altura_tabela + espacamentos['linhas']
 
-                    num_pagina_atual = atualizar_num_pagina(canvas, num_pagina_atual)
+                num_pagina_atual = atualizar_num_pagina(canvas, num_pagina_atual)
 
-                    p_secao.drawOn(
-                        canvas, margens['esquerda'], dimensoes['altura'] - altura_titulo)
-                    tabela.drawOn(
-                        canvas, margens['esquerda'], dimensoes['altura'] - altura_texto)
+            p_secao.drawOn(
+                canvas, margens['esquerda'], dimensoes['altura'] - altura_titulo)
+            tabela.drawOn(
+                canvas, margens['esquerda'], dimensoes['altura'] - altura_texto)
 
     return num_pagina_atual
