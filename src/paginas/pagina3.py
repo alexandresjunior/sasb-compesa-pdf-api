@@ -18,7 +18,6 @@ espacamentos = obter_espacamentos()
 questoes = obter_formulario()
 
 def gerar_pag_3(canvas, altura_texto, num_pagina):
-
     # Finaliza a página anterior e adiciona uma nova página em branco. 
     canvas.showPage()
 
@@ -43,8 +42,7 @@ def gerar_pag_3(canvas, altura_texto, num_pagina):
     paragrafo = Paragraph(texto, estilos['texto'])
     largura_paragrafo, altura_paragrafo = paragrafo.wrap(dimensoes['largura'] - margens['esquerda'] - margens['direita'],
                                                          dimensoes['altura'] - margens['superior'] - margens['inferior'])
-    altura_texto += altura_paragrafo + \
-        espacamentos['titulo'] + espacamentos['linhas']
+    altura_texto += altura_paragrafo + espacamentos['linhas']
     paragrafo.drawOn(canvas, margens['esquerda'],
                      dimensoes['altura'] - altura_texto)
 
