@@ -3,7 +3,6 @@
 from reportlab.platypus import Paragraph
 from reportlab.lib.utils import ImageReader
 
-from src.mocks.formulario import obter_formulario
 from src.utils.anexos import agrupar_anexos
 from src.utils.formatacao import obter_dimensoes, obter_espacamentos, obter_estilos, obter_fator_redutor_imagem, obter_margens
 from src.utils.paginacao import atualizar_num_pagina, criar_nova_pagina
@@ -15,9 +14,7 @@ estilos = obter_estilos()
 margens = obter_margens()
 espacamentos = obter_espacamentos()
 
-questoes = obter_formulario()
-
-def gerar_pag_5(canvas, altura_texto, num_pagina):
+def gerar_pag_5(canvas, altura_texto, num_pagina, formulario):
     criar_nova_pagina(canvas)
 
     # Define o título e desenha na página
@@ -32,7 +29,7 @@ def gerar_pag_5(canvas, altura_texto, num_pagina):
 
     num_pagina = atualizar_num_pagina(canvas, num_pagina)
 
-    anexos = agrupar_anexos(questoes)
+    anexos = agrupar_anexos(formulario)
 
     # Cria o objeto de imagem a partir da string base64
 

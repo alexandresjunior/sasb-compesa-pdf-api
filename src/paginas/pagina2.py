@@ -12,7 +12,7 @@ estilos = obter_estilos()
 margens = obter_margens()
 espacamentos = obter_espacamentos()
 
-def gerar_pag_2(canvas, altura_texto, num_pagina):
+def gerar_pag_2(canvas, altura_texto, num_pagina, barragem):
     criar_nova_pagina(canvas)
 
     # Define o texto e desenha na página

@@ -2,8 +2,6 @@
 
 from reportlab.platypus import Paragraph
 
-from src.mocks.formulario import obter_formulario
-
 from src.utils.formatacao import obter_dimensoes, obter_estilos, obter_margens, obter_espacamentos
 from src.utils.paginacao import atualizar_num_pagina, criar_nova_pagina
 from src.utils.inspecao import gerar_ficha_inspecao
@@ -16,9 +14,7 @@ estilos = obter_estilos()
 margens = obter_margens()
 espacamentos = obter_espacamentos()
 
-questoes = obter_formulario()
-
-def gerar_pag_3(canvas, altura_texto, num_pagina):
+def gerar_pag_3(canvas, altura_texto, num_pagina, formulario):
     criar_nova_pagina(canvas)
 
     # Define o título e desenha na página
@@ -44,6 +40,6 @@ def gerar_pag_3(canvas, altura_texto, num_pagina):
 
     num_pagina = atualizar_num_pagina(canvas, num_pagina)
 
-    num_pagina = gerar_ficha_inspecao(canvas, num_pagina, questoes, altura_texto)
+    num_pagina = gerar_ficha_inspecao(canvas, num_pagina, formulario, altura_texto)
 
     return altura_texto, num_pagina

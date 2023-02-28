@@ -13,7 +13,7 @@ estilos = obter_estilos()
 margens = obter_margens()
 espacamentos = obter_espacamentos()
 
-def gerar_pag_1(canvas, num_pagina):
+def gerar_pag_1(canvas, num_pagina, barragem):
     criar_nova_pagina(canvas)
 
     # Define o título e desenha na página

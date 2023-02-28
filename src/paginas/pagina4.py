@@ -2,8 +2,6 @@
 
 from reportlab.platypus import Paragraph
 
-from src.mocks.formulario import obter_formulario
-
 from src.utils.formatacao import obter_dimensoes, obter_espacamentos, obter_estilos, obter_margens
 from src.utils.paginacao import atualizar_num_pagina, criar_nova_pagina
 
@@ -13,8 +11,6 @@ dimensoes = obter_dimensoes()
 estilos = obter_estilos()
 margens = obter_margens()
 espacamentos = obter_espacamentos()
-
-questoes = obter_formulario()
 
 def gerar_pag_4(canvas, altura_texto, num_pagina):
     criar_nova_pagina(canvas)
