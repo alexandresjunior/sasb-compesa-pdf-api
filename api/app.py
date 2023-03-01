@@ -55,6 +55,7 @@ def login():
     else:
         status = 400
         mensagem = 'E-mail ou senha inválidos! Tente novamente.'
+        usuario = []
 
     # Retorna um JSON com o status e mensagem da autenticação
     return jsonify({'status': status, 'mensagem': mensagem, 'usuario': usuario})
@@ -84,6 +85,7 @@ def cadastro():
     else:
         status = 400
         mensagem = 'Matrícula inválida! Tente novamente.'
+        usuario = []
 
     # Retorna um JSON com o status e mensagem da autenticação
     return jsonify({'status': status, 'mensagem': mensagem, 'usuario': usuario})
