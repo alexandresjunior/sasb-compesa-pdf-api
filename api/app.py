@@ -1,4 +1,4 @@
-from flask import Flask, Response
+from flask import Flask, make_response
 from reportlab.pdfgen import canvas
 from io import BytesIO
 
@@ -21,16 +21,10 @@ def obter_relatorio():
     buffer.seek(0)
 
     # Converte o objeto PDF em HTML
-    pdf_bytes = buffer.getvalue()
-    pdf_string = pdf_bytes.decode('latin-1')
-    html = pdf_string.encode('ascii', 'xmlcharrefreplace').decode()
-
-    response = Response(html, mimetype='text/html')
+    response = make_response(buffer.read())
     
-    # response = make_response(buffer.read())
-    
-    # response.headers['Content-Type'] = 'application/pdf'
-    # response.headers['Content-Disposition'] = 'attachment; filename=relatorio.pdf'
+    response.headers['Content-Type'] = 'application/pdf'
+    response.headers['Content-Disposition'] = 'attachment; filename=relatorio.pdf'
     
     return response
 
