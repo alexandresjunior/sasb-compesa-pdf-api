@@ -1,4 +1,4 @@
-from flask import Flask, make_response
+from flask import Flask, request, make_response, jsonify
 from reportlab.pdfgen import canvas
 from io import BytesIO
 
@@ -27,6 +27,24 @@ def obter_relatorio():
     response.headers['Content-Disposition'] = 'attachment; filename=relatorio.pdf'
     
     return response
+
+@app.route('/sasb/login', methods=['POST'])
+def login():
+    # Obtém os dados do corpo JSON da solicitação
+    data = request.json
+    email = data['email']
+    senha = data['senha']
+    
+    # Realize a autenticação e verifique se a senha é correta
+    if email == 'teste@compesa.com.br' and senha == 'teste':
+        status = 200
+        mensagem = 'Autenticação realizada com sucesso!'
+    else:
+        status = 400
+        mensagem = 'E-mail ou senha inválidos'
+
+    # Retorna um JSON com o status e mensagem da autenticação
+    return jsonify({'status': status, 'mensagem': mensagem})
 
 if __name__ == '__main__':
     app.run(debug=True)
