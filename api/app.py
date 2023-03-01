@@ -83,8 +83,8 @@ def cadastro():
             'telefone': '(81) 99999-9999'
         }
     else:
-        status = 400
-        mensagem = 'Matrícula inválida! Tente novamente.'
+        status = 403
+        mensagem = 'Acesso negado! Tente novamente.'
         usuario = []
 
     # Retorna um JSON com o status e mensagem da autenticação
