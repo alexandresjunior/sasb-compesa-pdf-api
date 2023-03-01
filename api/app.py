@@ -42,19 +42,28 @@ def login():
     if email == 'teste@compesa.com.br' and senha == 'teste':
         status = 200
         mensagem = 'Autenticação realizada com sucesso!'
+        usuario = {
+            'nome': 'Usuário de Teste',
+            'cargo': 'Engenheiro Civil',
+            'tipoUsuario': {
+                'nome': 'Administrador'
+            },
+            'matricula': 12345,
+            'email': email,
+            'telefone': '(81) 99999-9999'
+        }
     else:
         status = 400
         mensagem = 'E-mail ou senha inválidos! Tente novamente.'
 
     # Retorna um JSON com o status e mensagem da autenticação
-    return jsonify({'status': status, 'mensagem': mensagem})
+    return jsonify({'status': status, 'mensagem': mensagem, 'usuario': usuario})
 
 
 @app.route('/sasb/cadastro', methods=['POST'])
 def cadastro():
     # Obtém os dados do corpo JSON da solicitação
     data = request.json
-    matricula = data['matricula']
     email = data['email']
     senha = data['senha']
 
@@ -62,12 +71,22 @@ def cadastro():
     if email == 'teste@compesa.com.br' and senha == 'teste':
         status = 200
         mensagem = 'Cadastro realizado com sucesso!'
+        usuario = {
+            'nome': 'Usuário de Teste',
+            'cargo': 'Engenheiro Civil',
+            'tipoUsuario': {
+                'nome': 'Administrador'
+            },
+            'matricula': 12345,
+            'email': email,
+            'telefone': '(81) 99999-9999'
+        }
     else:
         status = 400
         mensagem = 'Matrícula inválida! Tente novamente.'
 
     # Retorna um JSON com o status e mensagem da autenticação
-    return jsonify({'status': status, 'mensagem': mensagem})
+    return jsonify({'status': status, 'mensagem': mensagem, 'usuario': usuario})
 
 
 if __name__ == '__main__':
