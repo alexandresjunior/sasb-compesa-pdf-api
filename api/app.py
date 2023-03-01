@@ -1,4 +1,4 @@
-from flask import Flask, request, make_response
+from flask import Flask, Response
 from reportlab.pdfgen import canvas
 from io import BytesIO
 
@@ -9,7 +9,7 @@ app = Flask(__name__)
 def init():
     return "SASB-COMPESA: Gerador de Relatório de Inspeção em PDF"
 
-@app.route('/relatorio', methods=['GET'])
+@app.route('/sasb/relatorio', methods=['GET'])
 def obter_relatorio():
     # Crie o arquivo PDF usando o ReportLab
     buffer = BytesIO()
@@ -19,11 +19,18 @@ def obter_relatorio():
     
     # Crie a resposta do Flask com o arquivo PDF em memória
     buffer.seek(0)
+
+    # Converte o objeto PDF em HTML
+    pdf_bytes = buffer.getvalue()
+    pdf_string = pdf_bytes.decode('latin-1')
+    html = pdf_string.encode('ascii', 'xmlcharrefreplace').decode()
+
+    response = Response(html, mimetype='text/html')
     
-    response = make_response(buffer.read())
+    # response = make_response(buffer.read())
     
-    response.headers['Content-Type'] = 'application/pdf'
-    response.headers['Content-Disposition'] = 'attachment; filename=relatorio.pdf'
+    # response.headers['Content-Type'] = 'application/pdf'
+    # response.headers['Content-Disposition'] = 'attachment; filename=relatorio.pdf'
     
     return response
 
