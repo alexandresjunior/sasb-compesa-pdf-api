@@ -23,7 +23,7 @@ def gerar_capa(canvas, barragem):
 
     # A imagem é adicionada ao canvas na posição (0, 0)
     # com uma largura e altura para preencher toda a página sem margens.
-    canvas.drawImage("assets/background_cover.png", 0, 0,
+    canvas.drawImage("assets/background_page.png", 0, 0,
                      dimensoes['largura'], dimensoes['altura'])
 
     # Define o texto centralizado na página
